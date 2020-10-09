@@ -1,0 +1,17 @@
+.btn-own-warning {
+  background-color: #febd69;
+  color: #111;
+  outline: none;
+  padding: 0 15px;
+  border: none;
+  transition: background 0.5s;
+  &:focus {
+    background: #ffb009;
+    color: #fff;
+    outline: none;
+  }
+  &:hover,
+  &:active {
+    background: #ffb009;
+  }
+}

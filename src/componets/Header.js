@@ -1,14 +1,23 @@
-import React from "react";
-import SearchIcon from "@material-ui/icons/Search";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import MenuIcon from "@material-ui/icons/Menu";
-import "./style/Header.scss";
+import React from 'react';
+// icons
+import SearchIcon from '@material-ui/icons/Search';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import MenuIcon from '@material-ui/icons/Menu';
+// redux
+import { connect } from 'react-redux';
+import { someAction } from '../store/actions';
 
-const Header = () => {
+const Header = ({ product, someAction }) => {
+  React.useEffect(() => {
+    console.log(product);
+    console.log('pass for this');
+    someAction('some data');
+  }, []);
+
   return (
     <div className="fluid-container Header d-flex px-3 py-2 align-items-center">
       <div className="mr-4">
-        <MenuIcon fontSize="large" style={{ color: "white" }} />
+        <MenuIcon fontSize="large" style={{ color: 'white' }} />
       </div>
       <img
         src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
@@ -39,4 +48,10 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStoreToProps = (store) => {
+  return {
+    product: store.products,
+  };
+};
+
+export default connect(mapStoreToProps, { someAction })(Header);

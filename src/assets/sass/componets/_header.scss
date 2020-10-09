@@ -1,21 +1,19 @@
-$primary: #131a22;
-$secondary: #232f3e;
-
 .Header {
   background-color: $primary;
+  min-width: 750px;
   img {
     width: 110px;
     height: 40px;
   }
   .header__search {
-    width: calc(70% - 80px);
+    width: calc(100% - 535px);
     overflow: hidden;
     border-radius: 10px;
     .header__searchInput {
       width: 100%;
       height: 50px;
       border: none;
-      padding-right: 60px;
+      padding: 10px 60px 10px 10px;
       &:focus {
         border-radius: 10px;
         border: 3px solid #febd69;
@@ -28,14 +26,16 @@ $secondary: #232f3e;
     }
   }
   .header__nav {
-    width: calc(30% - 80px);
     list-style: none;
-    .header__optionCaption {
-      color: #ccc;
-      font-size: 0.97em;
-      font-weight: 200;
-      display: block;
-      margin-bottom: -27px;
+    .header_option {
+      white-space: nowrap;
+      .header__optionCaption {
+        color: #ccc;
+        font-size: 0.97em;
+        font-weight: 200;
+        display: block;
+        margin-bottom: -27px;
+      }
     }
     .shoppingCart__counter {
       width: 18px;
@@ -48,23 +48,5 @@ $secondary: #232f3e;
       top: 0;
       right: 0;
     }
-  }
-}
-
-.btn-own-warning {
-  background-color: #febd69;
-  color: #111;
-  outline: none;
-  padding: 0 15px;
-  border: none;
-  transition: background position-relative.5s;
-  &:focus {
-    background: #ffb009;
-    color: #fff;
-    outline: none;
-  }
-  &:hover,
-  &:active {
-    background: #ffb009;
   }
 }
