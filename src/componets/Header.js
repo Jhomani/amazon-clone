@@ -1,32 +1,38 @@
 import React from "react";
+import SearchIcon from "@material-ui/icons/Search";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import MenuIcon from "@material-ui/icons/Menu";
 import "./style/Header.scss";
 
 const Header = () => {
   return (
-    <div className="container Header d-flex">
+    <div className="fluid-container Header d-flex px-3 py-2 align-items-center">
+      <div className="mr-4">
+        <MenuIcon fontSize="large" style={{ color: "white" }} />
+      </div>
       <img
         src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
         alt="brand"
+        className="align-self-end"
       />
-      <div className="header__search">
+      <div className="header__search ml-5 mr-2 position-relative">
         <input type="text" className="header__searchInput" />
-        {/*logo*/}
+        <button className="btn-own-warning position-absolute">
+          <SearchIcon />
+        </button>
       </div>
-      <ul className="header__nav">
-        <li className="header_option">
-          <span className="header__optionCaption">Hello</span>
-          Dada
+      <ul className="header__nav d-flex p-0 m-0">
+        <li className="header_option mx-3 text-light font-weight-bold">
+          <span className="header__optionCaption">Hello, info</span> <br />
+          Account & List
         </li>
-        <li className="header_option">
-          <span className="header__optionCaption">Returns</span>& Orders
+        <li className="header_option mx-3 text-light font-weight-bold">
+          <span className="header__optionCaption">Returns</span> <br />
+          <span>& Orders</span>
         </li>
-        <li className="header_option">
-          <span className="header__optionCaption">Hello</span>
-          Dada
-        </li>
-        <li className="header_option">
-          <span className="header__optionCaption">Your</span>
-          Prime
+        <li className="position-relative mx-3 text-light d-flex align-items-center">
+          <ShoppingCartIcon fontSize="large" />
+          <div className="shoppingCart__counter">1</div>
         </li>
       </ul>
     </div>

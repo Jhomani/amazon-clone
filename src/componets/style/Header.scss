@@ -2,6 +2,69 @@ $primary: #131a22;
 $secondary: #232f3e;
 
 .Header {
-  // background-color: $secondary;
-  background-color: #f0f;
+  background-color: $primary;
+  img {
+    width: 110px;
+    height: 40px;
+  }
+  .header__search {
+    width: calc(70% - 80px);
+    overflow: hidden;
+    border-radius: 10px;
+    .header__searchInput {
+      width: 100%;
+      height: 50px;
+      border: none;
+      padding-right: 60px;
+      &:focus {
+        border-radius: 10px;
+        border: 3px solid #febd69;
+      }
+    }
+    button {
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  }
+  .header__nav {
+    width: calc(30% - 80px);
+    list-style: none;
+    .header__optionCaption {
+      color: #ccc;
+      font-size: 0.97em;
+      font-weight: 200;
+      display: block;
+      margin-bottom: -27px;
+    }
+    .shoppingCart__counter {
+      width: 18px;
+      height: 18px;
+      background-color: #f00;
+      border-radius: 10px;
+      font-size: 11px;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+}
+
+.btn-own-warning {
+  background-color: #febd69;
+  color: #111;
+  outline: none;
+  padding: 0 15px;
+  border: none;
+  transition: background position-relative.5s;
+  &:focus {
+    background: #ffb009;
+    color: #fff;
+    outline: none;
+  }
+  &:hover,
+  &:active {
+    background: #ffb009;
+  }
 }
