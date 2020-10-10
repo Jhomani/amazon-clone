@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // icons
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -7,12 +7,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { connect } from 'react-redux';
 import { someAction } from '../store/actions';
 
-const Header = ({ product, someAction }) => {
-  React.useEffect(() => {
-    console.log(product);
-    console.log('pass for this');
-    someAction('some data');
-  }, []);
+const Header = ({ product }) => {
+  const [cart, setCart] = useState(null);
+
+  React.useEffect(() => {}, [product]);
 
   return (
     <div className="fluid-container Header d-flex px-3 py-2 align-items-center">
@@ -48,10 +46,10 @@ const Header = ({ product, someAction }) => {
   );
 };
 
-const mapStoreToProps = (store) => {
+const store = (store) => {
   return {
     product: store.products,
   };
 };
 
-export default connect(mapStoreToProps, { someAction })(Header);
+export default connect(store, null)(Header);
