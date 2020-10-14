@@ -6,8 +6,12 @@
 @import './base/buttons';
 
 // import components
-@import './componets/body.scss';
-@import './componets/header.scss';
+@import './components/header.scss';
+@import './components/card.scss';
+@import './components/productBar.scss';
+
+// import views
+@import './views/home.scss';
 
 * {
   margin: 0;
@@ -21,4 +25,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  background: #eaeded
 }

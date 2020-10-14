@@ -1,0 +1,16 @@
+.home__container{
+  .banner__home {
+    position: relative;
+    .banner-image {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      right: 0;
+      z-index: 0;
+      mask-image: linear-gradient(to bottom, #000f, #0001);
+    }
+  }
+  .content__home{
+    padding-top: 220px;
+  }
+}

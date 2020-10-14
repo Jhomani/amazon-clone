@@ -1,0 +1,20 @@
+.home__productsBar {
+  background: #fff;
+  height: 200px;
+  margin: 0 15px 15px;
+  padding: 15px;
+  .bar__image {
+    width: 150px;
+    height: 120px;
+    object-fit: cover;
+    object-position: top;
+  }
+  .box__products{
+    display: flex;
+    padding-bottom: 10px;
+    overflow: hidden;
+    &:hover{
+      overflow: auto;
+    }
+  }
+}

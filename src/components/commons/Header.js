@@ -5,12 +5,13 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import MenuIcon from '@material-ui/icons/Menu';
 // redux
 import { connect } from 'react-redux';
-import { someAction } from '../store/actions';
 
-const Header = ({ product }) => {
+const Header = ({ auth }) => {
   const [cart, setCart] = useState(null);
 
-  React.useEffect(() => {}, [product]);
+  React.useEffect(() => {
+    console.log(auth);
+  }, [auth]);
 
   return (
     <div className="fluid-container Header d-flex px-3 py-2 align-items-center">
@@ -46,10 +47,10 @@ const Header = ({ product }) => {
   );
 };
 
-const store = (store) => {
+const mapStore = store => {
   return {
-    product: store.products,
+    auth: store.auth,
   };
 };
 
-export default connect(store, null)(Header);
+export default connect(mapStore)(Header);
