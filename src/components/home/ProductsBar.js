@@ -1,6 +1,5 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { db } from '../../settings/firebase';
 import { useFetchData } from '../../hooks/fectCollection';
 
 const ProductsBar = ({ collection }) => {
@@ -10,9 +9,9 @@ const ProductsBar = ({ collection }) => {
   const getImages = async () => {
     const fetchedImages = [];
 
-    if(data) {
+    if (data) {
       try {
-        for(let item of data[0].images) {
+        for (let item of data[0].images) {
           const res = await item.get()
 
           fetchedImages.push(res.data().images[0]);
@@ -20,7 +19,7 @@ const ProductsBar = ({ collection }) => {
 
         setImages(fetchedImages);
       }
-      catch(err) {
+      catch (err) {
         console.log(err);
       }
     }
@@ -30,7 +29,7 @@ const ProductsBar = ({ collection }) => {
     getImages();
   }, [data]);
 
-  if(!images) {
+  if (!images) {
     return (
       <div className="home__productsBar">
         loaging...
@@ -40,37 +39,34 @@ const ProductsBar = ({ collection }) => {
     return (
       <div className="home__productsBar">
         <div className="headerBar mb-2">
-          <h5 
+          <h5
             className="d-inline-block mr-2"
             style={{ fontWeight: 600 }}
           >
-              {data ?data[0].name :""}
+            {data ? data[0].name : ""}
           </h5>
-          <Link>Shop now</Link>
+          <Link to="/">Shop now</Link>
         </div>
         <div className="box__products">
-          { images
-            ? images.map((url, index) => {
-                return (
-                  <>
-                    <div key={index} className="mr-3">
-                      <Link to="">
-                        <img className="bar__image" src={url} alt="1" />
-                      </Link>
-                    </div>
-                    <div className="mr-3">
-                      <Link to="">
-                        <img className="bar__image" src={url} alt="1" />
-                      </Link>
-                    </div>
-                    <div className="mr-3">
-                      <Link to="">
-                        <img className="bar__image" src={url} alt="1" />
-                      </Link>
-                    </div>
-                  </>
-                );
-              })
+          {images
+            ? images.map((url, index) => (
+              <React.Fragment key={index}>
+                <div className="mr-3">
+                  <Link to="">
+                    <img className="bar__image" src={url} alt="1" />
+                  </Link>
+                </div>
+                <div className="mr-3">
+                  <Link to="">
+                    <img className="bar__image" src={url} alt="1" />
+                  </Link>
+                </div>
+                <div className="mr-3">
+                  <Link to="">
+                    <img className="bar__image" src={url} alt="1" />
+                  </Link>
+                </div>
+              </React.Fragment>))
             : ''
           }
         </div>
